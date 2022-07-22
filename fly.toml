@@ -1,6 +1,6 @@
 # fly.toml file generated for bitter-sun-3854 on 2022-07-02T21:58:09-03:00
 
-app = "bitter-sun-3854"
+app = "dayedigao"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

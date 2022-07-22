@@ -2,17 +2,40 @@ import type { ActionFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Form, useActionData } from '@remix-run/react'
 import * as c from '@chakra-ui/react'
+import { GuestsModel } from '~/models'
 
 //export const loader: LoaderFunction = async () => {}
 
 export const action: ActionFunction = async ({ request }) => {
-  console.log('action')
+  const formData = await request.formData()
+  const { name, email, celphone, amountChildren } = Object.fromEntries(formData)
 
-  return json({ ok: true })
+  console.log('guest -> ', { name, email, celphone, amountChildren })
+  try {
+    const createGuest = await GuestsModel.create({
+      data: {
+        name,
+        email,
+        celphone: parseInt(celphone),
+        amountChildren,
+      },
+    })
+    console.log('createGuest -> ', createGuest)
+    return json(
+      { ok: true },
+      { status: 201, statusText: 'guest create success' }
+    )
+  } catch (error) {
+    return json(
+      { ok: false, error },
+      { status: 400, statusText: 'error create guest' }
+    )
+  }
 }
 
 export default function Index() {
   const actionData = useActionData()
+  console.log(actionData)
   return (
     <>
       <c.Flex
@@ -37,22 +60,22 @@ export default function Index() {
           <Form method="post">
             <c.FormControl mb={4}>
               <c.Text>Nome</c.Text>
-              <c.Input placeholder="nome completo" />
+              <c.Input placeholder="nome completo" name="name" />
               <c.FormErrorMessage>Nome é obrigatorio</c.FormErrorMessage>
             </c.FormControl>
             <c.FormControl mb={4}>
               <c.Text>Email</c.Text>
-              <c.Input placeholder="fulano@email.com" />
+              <c.Input placeholder="fulano@email.com" name="email" />
               <c.FormErrorMessage>email é obrigatorio</c.FormErrorMessage>
             </c.FormControl>
             <c.FormControl mb={4}>
               <c.Text>Celular</c.Text>
-              <c.Input placeholder="(xx) xxxxx-xxxx" />
+              <c.Input placeholder="(xx) xxxxx-xxxx" name="celphone" />
               <c.FormErrorMessage>Celular é obrigatorio</c.FormErrorMessage>
             </c.FormControl>
             <c.FormControl mb={4}>
               <c.Text>Quantidade de crianças</c.Text>
-              <c.NumberInput min={0}>
+              <c.NumberInput min={0} name="amountChildren">
                 <c.NumberInputField />
                 <c.NumberInputStepper>
                   <c.NumberIncrementStepper />
