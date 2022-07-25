@@ -5,16 +5,7 @@ import theme from '~/theme'
 // import { Container } from './styles';
 
 export const CountDown: React.FC = () => {
-  const renderer = ({
-    days,
-    hours,
-    minutes,
-    seconds,
-    completed,
-    total,
-    props,
-    api,
-  }) => {
+  const renderer = ({ days, hours, completed }) => {
     if (completed) {
       // Render a completed state
       return <span>Hoje é o grande dia!</span>
