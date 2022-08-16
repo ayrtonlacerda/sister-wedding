@@ -21,16 +21,19 @@ export const ConfirmForm: React.FC = () => (
           <c.Input placeholder="nome completo" name="name" />
           <c.FormErrorMessage>Nome é obrigatorio</c.FormErrorMessage>
         </c.FormControl>
+
         <c.FormControl mb={4}>
           <c.Text>Email</c.Text>
           <c.Input placeholder="fulano@email.com" name="email" />
           <c.FormErrorMessage>email é obrigatorio</c.FormErrorMessage>
         </c.FormControl>
+
         <c.FormControl mb={4}>
           <c.Text>Celular</c.Text>
           <c.Input placeholder="(xx) xxxxx-xxxx" name="celphone" />
           <c.FormErrorMessage>Celular é obrigatorio</c.FormErrorMessage>
         </c.FormControl>
+
         <c.FormControl mb={4}>
           <c.Text>Quantidade de crianças</c.Text>
           <c.NumberInput min={0} name="amountChildren">
