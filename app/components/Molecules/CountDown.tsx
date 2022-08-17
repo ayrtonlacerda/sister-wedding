@@ -5,7 +5,7 @@ import theme from '~/theme'
 // import { Container } from './styles';
 
 export const CountDown: React.FC = () => {
-  const renderer = ({ days, hours, completed }) => {
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
       return <span>Hoje é o grande dia!</span>
@@ -14,9 +14,15 @@ export const CountDown: React.FC = () => {
       return (
         <c.HStack alignItems="end">
           {/* <c.Text>faltam</c.Text> */}
-          <c.Text color={theme.colors.greenPalmTree} fontSize="3rem">
-            {days} {days > 1 ? 'dias' : 'dia'} e {hours}
-            {hours > 1 ? ' horas' : ' hora'}
+          <c.Text
+            textAlign="center"
+            px="2"
+            color={theme.colors.greenPalmTree}
+            fontSize="2rem"
+          >
+            {days} {days > 1 ? 'dias' : 'dia'} {hours}
+            {hours > 1 ? ' horas' : ' hora'} <br /> {`${minutes} minutos`} e{' '}
+            {`${seconds} segundos para o casamento`}
           </c.Text>
         </c.HStack>
       )

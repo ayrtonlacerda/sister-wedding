@@ -7,6 +7,7 @@ import {
   Actions,
   ConfirmForm,
   EventSchedule,
+  History,
   Title,
 } from '~/components/templates'
 
@@ -63,6 +64,7 @@ export default function Index() {
       <Title />
       <ConfirmForm />
       <EventSchedule />
+      <History />
       <Actions />
     </>
   )
