@@ -10,6 +10,12 @@ import {
   Title,
 } from '~/components/templates'
 
+import styles from '~/styles/timeline.css'
+
+export function links() {
+  return [{ rel: 'stylesheet', href: styles }]
+}
+
 //export const loader: LoaderFunction = async () => {}
 type FormType = {
   name: string

@@ -1248,6 +1248,20 @@
   dependencies:
     "@chakra-ui/utils" "2.0.4"
 
+"@chakra-ui/icon@3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icon/-/icon-3.0.8.tgz#728476d657f1fc80c2ee0f39859703a0f3314b68"
+  integrity sha512-avd6mthBoG9R8cLLAROi/FItgk7wHy1YpeAXOrGdK/U/ECVWZev64RmI1UduKuVOLlSZldXWzFJmLdw6dAMG7A==
+  dependencies:
+    "@chakra-ui/utils" "2.0.8"
+
+"@chakra-ui/icons@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.0.8.tgz#38659b322165566806a8e7a9f1e0d38fa15128f1"
+  integrity sha512-otX85/laLd9rC26EsaRK/QufXxclfK/JGw3vdxh+sEULFgwuC56tUzmXTwIt8GcDIx/LvZBkDgkXN0sn6Cqmog==
+  dependencies:
+    "@chakra-ui/icon" "3.0.8"
+
 "@chakra-ui/image@2.0.5":
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/@chakra-ui/image/-/image-2.0.5.tgz#c3948a80b205c326eec2a622f4c1db92de26febf"
@@ -1624,6 +1638,16 @@
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-2.0.4.tgz#dbed9f173edda0eb54947d98754b834729ae22bc"
   integrity sha512-pr5qFTrhCja1iQTajOr2WSvb+f4lpnLnnxWOSYOuIv7k8LBEtee4LpTs0jzBBB/vycuo6ppKdXyj7db9xTqZfA==
+  dependencies:
+    "@types/lodash.mergewith" "4.6.6"
+    css-box-model "1.2.1"
+    framesync "5.3.0"
+    lodash.mergewith "4.6.2"
+
+"@chakra-ui/utils@2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-2.0.8.tgz#b75e1cd22479eaa64410bd42849e638138971b20"
+  integrity sha512-5xSzOYSYbJEh+myY1mC6rOX+mzM/F2fiDqAw0zybHhfUab4zPHCO5RlgYVJ0L1DlGZUogVgRP6szH1xoBCcWQg==
   dependencies:
     "@types/lodash.mergewith" "4.6.6"
     css-box-model "1.2.1"
@@ -2342,6 +2366,22 @@
   integrity sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==
   dependencies:
     "@types/react" "^17"
+
+"@types/react-vertical-timeline-component@^3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@types/react-vertical-timeline-component/-/react-vertical-timeline-component-3.3.3.tgz#bd1ddcbee2e99827e3e47e9bac3074d553ca5284"
+  integrity sha512-xmKeQ9TtZLeGtsWQx2im0U79wnC0M2F/FPEAHP7uS3G9SAVgis1XSHzq/mq7XrcbnI9eiZbL7dhiy/TqCuDc7w==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "18.0.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.17.tgz#4583d9c322d67efe4b39a935d223edcc7050ccf4"
+  integrity sha512-38ETy4tL+rn4uQQi7mB81G7V1g0u2ryquNmsVIOKUAEIDK+3CUjZ6rSRpdvS99dNBnkLFL83qfmtLacGOTIhwQ==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
 
 "@types/react@^17", "@types/react@^17.0.45":
   version "17.0.47"
@@ -3156,7 +3196,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.3.1:
+classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -7112,6 +7152,11 @@ react-focus-lock@^2.9.1:
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
 
+react-intersection-observer@^8.26.2:
+  version "8.34.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.34.0.tgz#6f6e67831c52e6233f6b6cc7eb55814820137c42"
+  integrity sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -7172,6 +7217,15 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-vertical-timeline-component@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/react-vertical-timeline-component/-/react-vertical-timeline-component-3.5.2.tgz#fd2c34e130176f5c1f10e2e3468c14a1d74a7453"
+  integrity sha512-Wcb85NUvmygLFF45bfxVGU4AyHOBjdQY9IqB8uLG1jXWvIthkQft1ZJOGirIlYHSYnDl9sOs8ItL1sNtqA7GUg==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react-intersection-observer "^8.26.2"
 
 react@^18.2.0:
   version "18.2.0"
