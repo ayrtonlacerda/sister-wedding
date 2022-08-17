@@ -6,8 +6,6 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
-
-import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
 import { Img } from '~/assets'
 
 // styles is now something like /build/global-AE33KB2.css
