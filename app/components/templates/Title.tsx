@@ -1,13 +1,14 @@
 import * as c from '@chakra-ui/react'
+import { Img } from '~/assets'
 
 export const Title: React.FC = () => (
   <c.Flex
-    bg="blue.300"
     h="100vh"
     w="100vw"
-    justifyContent="center"
+    justifyContent="flex-start"
     alignItems="center"
+    flexDir="column"
   >
-    <c.Heading color="white">Day & Digão</c.Heading>
+    <c.Image src={Img.BG} h="100vh" />
   </c.Flex>
 )

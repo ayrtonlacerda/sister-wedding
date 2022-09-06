@@ -20,20 +20,21 @@ const Card = ({ title, uri, comingsoon }) => {
     <Center py={12}>
       <Box
         role={'group'}
-        p={6}
-        maxW={'330px'}
+        p={4}
+        maxW="18rem"
         w={'full'}
         bg={useColorModeValue('white', 'gray.800')}
         boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
         zIndex={1}
+        alignContent="center"
       >
         <Box
           rounded={'lg'}
           mt={-12}
           pos={'relative'}
-          height={'230px'}
+          height="10rem"
           _after={{
             transition: 'all .3s ease',
             content: '""',
@@ -54,8 +55,8 @@ const Card = ({ title, uri, comingsoon }) => {
         >
           <Image
             rounded={'lg'}
-            height={230}
-            width={282}
+            height="10rem"
+            width="16rem"
             objectFit={'cover'}
             src={uri}
           />
@@ -73,7 +74,7 @@ const Card = ({ title, uri, comingsoon }) => {
 
           <Heading
             textAlign="center"
-            fontSize={'2xl'}
+            fontSize={'lg'}
             fontFamily={'body'}
             fontWeight={500}
           >
@@ -85,17 +86,20 @@ const Card = ({ title, uri, comingsoon }) => {
   )
 }
 
-export const Actions: React.FC = () => (
-  <c.Flex
-    bg="white"
-    h="100vh"
-    w="100vw"
-    justifyContent="center"
-    alignItems="center"
-    flexDir="column"
-    p="6"
-  >
-    <Card title="Barra Grande, O Paraiso na terra" uri={IMAGE} />
-    <Card title="Lista de presentes" uri={IMAGE2} comingsoon />
-  </c.Flex>
-)
+export const Actions: React.FC = () => {
+  const [breakpoint] = c.useMediaQuery('(max-height: 2000px)')
+  return (
+    <c.Flex
+      bg="white"
+      h="100vh"
+      w="100vw"
+      justifyContent="center"
+      alignItems="center"
+      flexDir={'column'}
+      p="6"
+    >
+      <Card title="Barra Grande, O Paraiso na terra" uri={IMAGE} comingsoon />
+      <Card title="Lista de presentes" uri={IMAGE2} comingsoon />
+    </c.Flex>
+  )
+}

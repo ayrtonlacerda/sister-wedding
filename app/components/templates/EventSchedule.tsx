@@ -38,41 +38,45 @@ const SCHEDULE = [
   },
 ]
 
-export const EventSchedule: React.FC = () => (
-  <c.Flex
-    bg={theme.colors.greenPalmTree}
-    h="100vh"
-    w="100vw"
-    justifyContent="center"
-    alignItems="center"
-  >
-    <c.Box w="300px">
-      <VerticalTimeline layout="1-column-left" animate={false}>
-        {SCHEDULE.map((event, index) => (
-          <VerticalTimelineElement
-            key={index}
-            className="vertical-timeline-element--work"
-            date={event.time}
-            dateClassName="date-timeline-element"
-            icon={<c.Image src={Img[event.icon]} />}
-            iconStyle={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#fff',
-              color: '#fff',
-            }}
-            contentArrowStyle={{
-              background: '#f00',
-            }}
-            contentStyle={{ color: '#fff' }}
-          >
-            <c.Heading fontSize="lg" color="#fff">
-              {event.description}
-            </c.Heading>
-          </VerticalTimelineElement>
-        ))}
-      </VerticalTimeline>
-    </c.Box>
-  </c.Flex>
-)
+export const EventSchedule: React.FC = () => {
+  const [breakpoint] = c.useMediaQuery('(min-height: 700px)')
+
+  return (
+    <c.Flex
+      bg={theme.colors.greenPalmTree}
+      h={breakpoint ? '100vh' : '110vh'}
+      w="100vw"
+      justifyContent="center"
+      alignItems="flex-end"
+    >
+      <c.Box w="300px">
+        <VerticalTimeline layout="1-column-left" animate={false}>
+          {SCHEDULE.map((event, index) => (
+            <VerticalTimelineElement
+              key={index}
+              className="vertical-timeline-element--work"
+              date={event.time}
+              dateClassName="date-timeline-element"
+              icon={<c.Image src={Img[event.icon]} />}
+              iconStyle={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#fff',
+                color: '#fff',
+              }}
+              contentArrowStyle={{
+                background: '#f00',
+              }}
+              contentStyle={{ color: '#fff' }}
+            >
+              <c.Heading fontSize="lg" color="#fff">
+                {event.description}
+              </c.Heading>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </c.Box>
+    </c.Flex>
+  )
+}
