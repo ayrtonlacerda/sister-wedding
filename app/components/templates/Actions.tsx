@@ -8,6 +8,7 @@ import {
   Stack,
   Image,
 } from '@chakra-ui/react'
+import { Link } from '@remix-run/react'
 
 const IMAGE =
   'https://www.voali.com.br/wp-content/uploads/2020/07/O-que-fazer-em-Barra-Grande-5.jpg'
@@ -15,79 +16,80 @@ const IMAGE =
 const IMAGE2 =
   'https://blog.wedy.com/wp-content/uploads/2019/06/ekaterina-shevchenko-ZLTlHeKbh04-unsplash.jpg'
 
-const Card = ({ title, uri, comingsoon }) => {
+const Card = ({ to, title, uri, comingsoon }) => {
   return (
-    <Center py={12}>
-      <Box
-        role={'group'}
-        p={4}
-        maxW="18rem"
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
-        boxShadow={'2xl'}
-        rounded={'lg'}
-        pos={'relative'}
-        zIndex={1}
-        alignContent="center"
-      >
+    <Link to={to}>
+      <Center py={12}>
         <Box
+          role={'group'}
+          p={4}
+          maxW="18rem"
+          w={'full'}
+          bg={useColorModeValue('white', 'gray.800')}
+          boxShadow={'2xl'}
           rounded={'lg'}
-          mt={-12}
           pos={'relative'}
-          height="10rem"
-          _after={{
-            transition: 'all .3s ease',
-            content: '""',
-            w: 'full',
-            h: 'full',
-            pos: 'absolute',
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${uri})`,
-            filter: 'blur(15px)',
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: 'blur(20px)',
-            },
-          }}
+          zIndex={1}
+          alignContent="center"
         >
-          <Image
+          <Box
             rounded={'lg'}
+            mt={-12}
+            pos={'relative'}
             height="10rem"
-            width="16rem"
-            objectFit={'cover'}
-            src={uri}
-          />
-        </Box>
-        <Stack pt={10} align={'center'}>
-          {comingsoon && (
-            <Text
-              color={'gray.500'}
-              fontSize={'sm'}
-              textTransform={'uppercase'}
-            >
-              EM BREVE
-            </Text>
-          )}
-
-          <Heading
-            textAlign="center"
-            fontSize={'lg'}
-            fontFamily={'body'}
-            fontWeight={500}
+            _after={{
+              transition: 'all .3s ease',
+              content: '""',
+              w: 'full',
+              h: 'full',
+              pos: 'absolute',
+              top: 5,
+              left: 0,
+              backgroundImage: `url(${uri})`,
+              filter: 'blur(15px)',
+              zIndex: -1,
+            }}
+            _groupHover={{
+              _after: {
+                filter: 'blur(20px)',
+              },
+            }}
           >
-            {title}
-          </Heading>
-        </Stack>
-      </Box>
-    </Center>
+            <Image
+              rounded={'lg'}
+              height="10rem"
+              width="16rem"
+              objectFit={'cover'}
+              src={uri}
+            />
+          </Box>
+          <Stack pt={10} align={'center'}>
+            {comingsoon && (
+              <Text
+                color={'gray.500'}
+                fontSize={'sm'}
+                textTransform={'uppercase'}
+              >
+                EM BREVE
+              </Text>
+            )}
+
+            <Heading
+              textAlign="center"
+              fontSize={'lg'}
+              fontFamily={'body'}
+              fontWeight={500}
+            >
+              {title}
+            </Heading>
+          </Stack>
+        </Box>
+      </Center>
+    </Link>
   )
 }
 
 export const Actions: React.FC = () => {
-  const [breakpoint] = c.useMediaQuery('(max-height: 2000px)')
   return (
     <c.Flex
       bg="white"
@@ -98,8 +100,13 @@ export const Actions: React.FC = () => {
       flexDir={'column'}
       p="6"
     >
-      <Card title="Barra Grande, O Paraiso na terra" uri={IMAGE} comingsoon />
-      <Card title="Lista de presentes" uri={IMAGE2} comingsoon />
+      <Card
+        to="/local"
+        title="Barra Grande, O Paraiso na terra"
+        uri={IMAGE}
+        comingsoon
+      />
+      <Card to="/gifts" title="Lista de presentes" uri={IMAGE2} comingsoon />
     </c.Flex>
   )
 }
