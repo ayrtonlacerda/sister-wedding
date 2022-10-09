@@ -12,8 +12,8 @@ jobs:
         with:
           node-version: "14.x"
 
-    #  - name: ⎔ Prisma Generate
-    #    run: npm run prisma:generate
+      - name: ⎔ Install Dependecy
+        run: npm install
           
       - name: ⬣ Deploy To Fly.io    
         run: flyctl deploy --remote-only
