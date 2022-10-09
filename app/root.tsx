@@ -11,6 +11,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 import type { MetaFunction, LinksFunction } from '@remix-run/node' // Depends on the runtime you choose
+import { createStandaloneToast } from '@chakra-ui/toast'
 
 import { ServerStyleContext, ClientStyleContext } from './context'
 
@@ -30,6 +31,8 @@ export let links: LinksFunction = () => {
     },
   ]
 }
+
+export const { ToastContainer, toast } = createStandaloneToast()
 
 interface DocumentProps {
   children: React.ReactNode
@@ -83,6 +86,7 @@ export default function App() {
     <Document>
       <ChakraProvider>
         <Outlet />
+        <ToastContainer />
       </ChakraProvider>
     </Document>
   )

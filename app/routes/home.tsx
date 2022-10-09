@@ -12,38 +12,47 @@ import {
 } from '~/components/templates'
 
 import styles from '~/styles/timeline.css'
+import * as yup from 'yup'
+import { toast } from '~/root'
+
+const schema = yup.object({
+  name: yup.string().required('Nome é obrigatorio'),
+  email: yup
+    .string()
+    .email('E-mail tem que ser valido')
+    .required('E-mail é obrigatorio'),
+  celphone: yup.number().required('Celular é obrigatorio'),
+})
 
 export function links() {
   return [{ rel: 'stylesheet', href: styles }]
 }
 
 //export const loader: LoaderFunction = async () => {}
-type FormType = {
-  name: string
-  email: string
-  celphone: string
-  amountChildren: string
-}
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData()
   // @ts-ignore
-  const { name, email, celphone, amountChildren }: FormType =
-    Object.fromEntries(formData)
+  const data: FormType = Object.fromEntries(formData)
 
-  console.log('guest -> ', { name, email, celphone, amountChildren })
-
-  return json({ ok: true })
   try {
-    const createGuest = await GuestsModel.create({
-      data: {
-        name,
-        email,
-        celphone: parseInt(celphone),
-        amountChildren,
-      },
+    await schema.validate(data, {
+      abortEarly: false,
     })
-    console.log('createGuest -> ', createGuest)
+
+    await GuestsModel.create({
+      ...data,
+      celphone: Number(data.celphone),
+      //  amount_children: data.amount_children?Number():,
+    })
+
+    toast({
+      title: 'Evento confirmado.',
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+    })
+
     return json(
       { ok: true },
       { status: 201, statusText: 'guest create success' }
@@ -57,8 +66,6 @@ export const action: ActionFunction = async ({ request }) => {
 }
 
 export default function Index() {
-  const actionData = useActionData()
-  console.log(actionData)
   return (
     <>
       <Title />
