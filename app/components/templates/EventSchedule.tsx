@@ -11,11 +11,11 @@ import { Img } from '~/assets'
 // styles is now something like /build/global-AE33KB2.css
 
 const SCHEDULE = [
-  {
+  /*   {
     time: 'Sexta - 18h',
     description: 'Luau dos noivos',
     icon: 'MOON',
-  },
+  }, */
   {
     time: 'Sábado - 17h',
     description: 'Inicio da cerimonia',
