@@ -9,7 +9,9 @@ import {
   EventSchedule,
   History,
   Title,
+  TitleHome,
 } from '~/components/templates'
+import { Img } from '~/assets'
 
 import styles from '~/styles/timeline.css'
 import * as yup from 'yup'
@@ -68,6 +70,7 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Index() {
   return (
     <>
+      <TitleHome />
       <Title />
       <ConfirmForm />
       <EventSchedule />

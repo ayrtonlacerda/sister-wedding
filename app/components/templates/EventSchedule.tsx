@@ -14,8 +14,7 @@ const SCHEDULE = [
   /*   {
     time: 'Sexta - 18h',
     description: 'Luau dos noivos',
-    icon: 'MOON',
-  }, */
+    icon: 'MOON',  }, */
   {
     time: 'Sábado - 17h',
     description: 'Inicio da cerimonia',
