@@ -54,7 +54,7 @@ export const ConfirmForm: React.FC = () => {
 
             <c.FormControl mb={4} isInvalid={errors?.email}>
               <c.Text>Email</c.Text>
-              <c.Input placeholder="fulano@email.com" name="email" />
+              <c.Input placeholder="exemplo@email.com" name="email" />
               <c.FormErrorMessage>
                 {errors?.email || 'Email é obrigatorio'}
               </c.FormErrorMessage>
